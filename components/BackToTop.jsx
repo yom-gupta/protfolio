@@ -16,7 +16,7 @@ export default function BackToTop() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -31,7 +31,7 @@ export default function BackToTop() {
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          className="fixed bottom-24 right-4 z-40 p-3 rounded-full bg-primary text-black shadow-[0_0_15px_rgba(255,189,57,0.5)] hover:bg-primary/90 transition-all cursor-pointer border border-primary/20 backdrop-blur-md"
+          className="fixed bottom-28 md:bottom-8 right-4 z-40 p-2.5 md:p-3 rounded-full bg-primary text-black shadow-[0_0_15px_rgba(255,189,57,0.5)] hover:bg-primary/90 transition-all cursor-pointer border border-primary/20 backdrop-blur-md"
           onClick={scrollToTop}
           aria-label="Back to top"
           initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ export default function BackToTop() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <ChevronUp className="w-6 h-6" />
+          <ChevronUp className="w-5 h-5 md:w-6 md:h-6" />
         </motion.button>
       )}
     </AnimatePresence>
