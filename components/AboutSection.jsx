@@ -55,7 +55,7 @@ export default function AboutSection() {
                   <div className="w-full sm:w-5/12 mx-auto sm:mx-0 flex justify-center">
                     <div className="about-img relative w-32 h-32 sm:w-full sm:h-auto overflow-hidden rounded-lg shadow-lg">
                       <Image
-                        src="/img/pfp2.jpg"
+                        src="/img/pfpf v2.jpg"
                         alt="Rishabh Gupta"
                         width={200}
                         height={200}
