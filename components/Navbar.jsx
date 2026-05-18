@@ -17,7 +17,7 @@ const navLinks = [
   { name: "Services", href: "#services-section", icon: Layers },
   { name: "Videos", href: "#video-section", icon: Video },
   { name: "Thumbnails", href: "#thumbnail-section", icon: ImageIcon },
-  // { name: "Designs", href: "#design-section", icon: ImageIcon },
+  { name: "Designs", href: "#design-section", icon: ImageIcon },
   { name: "Contact", href: "#contact-section", icon: Mail },
 ];
 
@@ -26,7 +26,7 @@ const mobileNavLinks = [
   { name: "Home", href: "#home-section", icon: Home },
   { name: "About", href: "#about-section", icon: User },
   { name: "Videos", href: "#video-section", icon: Video },
-  // { name: "Designs", href: "#design-section", icon: ImageIcon },
+  { name: "Designs", href: "#design-section", icon: ImageIcon },
   { name: "Contact", href: "#contact-section", icon: Mail },
 ];
 

@@ -94,21 +94,65 @@ const thumbnailsData = [
     category: "Tech",
     image: "Most important vs code extension 2.webp",
     avatar: "/img/btn_img.webp"
-  }
+  },
+  {
+    id: 9,
+    title: "I Bought a 40k Gaming Laptop!",
+    channel: "Yom Gupta",
+    views: "650K",
+    timeAgo: "5 months ago",
+    duration: "11:45",
+    category: "Tech",
+    image: "40k laptop v5.jpg",
+    avatar: "/img/btn_img.webp"
+  },
+  {
+    id: 10,
+    title: "Top High-Fiber Foods You Should Eat Daily",
+    channel: "Yom Gupta",
+    views: "410K",
+    timeAgo: "6 months ago",
+    duration: "10:30",
+    category: "Fitness",
+    image: "Fiber Source v6 final.jpg",
+    avatar: "/img/btn_img.webp"
+  },
+  {
+    id: 11,
+    title: "Ranking Every Protein Bar (Worst to Best)",
+    channel: "Yom Gupta",
+    views: "920K",
+    timeAgo: "7 months ago",
+    duration: "14:12",
+    category: "Fitness",
+    image: "Protein bars ranking v8.jpg",
+    avatar: "/img/btn_img.webp"
+  },
+  {
+    id: 12,
+    title: "Build an AI Resume Ranker from Scratch",
+    channel: "Yom Gupta",
+    views: "150K",
+    timeAgo: "8 months ago",
+    duration: "25:40",
+    category: "Tech",
+    image: "resume ranker ai project1.webp",
+    avatar: "/img/btn_img.webp"
+  },
+
 ];
 
 const categories = ["All", "Fitness", "Tech", "Education", "Design"];
 
 export default function ThumbnailSection() {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [showAll, setShowAll] = useState(false);
   const [filter, setFilter] = useState("All");
 
   const filteredData = filter === "All"
     ? thumbnailsData
     : thumbnailsData.filter(item => item.category === filter);
 
-  const visibleThumbnails = showAll ? filteredData : filteredData.slice(0, 8);
+  const visibleThumbnails = filteredData;
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -147,7 +191,6 @@ export default function ThumbnailSection() {
                 key={cat}
                 onClick={() => {
                   setFilter(cat);
-                  setShowAll(false);
                 }}
                 className={`px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border ${filter === cat
                   ? "bg-primary text-black border-primary shadow-[0_0_15px_rgba(255,189,57,0.3)]"

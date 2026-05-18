@@ -104,7 +104,7 @@ export default function AboutSection() {
               <h1 className="projects-bg opacity-10 top-0 left-0 lg:left-[-10%] whitespace-nowrap hidden sm:block">ABOUT</h1>
               <h2 className="mb-4 md:mb-6 text-white text-2xl sm:text-3xl md:text-4xl font-bold relative z-10 text-center lg:text-left">About Me</h2>
               <p className="text-gray-300 text-base sm:text-lg text-center sm:text-left">
-                I'm Rishabh — a video editor, thumbnail designer, and creative based in Delhi, India.
+                I'm Rishabh a video editor, thumbnail designer, and creative based in Delhi, India.
                 I've spent 2+ years working behind the scenes for YouTube and Instagram creators,
                 helping them turn raw footage into content that actually performs.
               </p>

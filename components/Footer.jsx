@@ -25,7 +25,7 @@ export default function Footer() {
         <p className="text-gray-400 text-xs md:text-sm">
           Copyright {year} All rights reserved by{" "}
           <a
-            href="https://Instagram.com/mr_yom_gupta"
+            href="https://yomgupta.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary hover:underline transition-all"

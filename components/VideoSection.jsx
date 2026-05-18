@@ -12,10 +12,11 @@ import MediaModal from "./MediaModal";
 // ];
 
 const shortsVideos = [
-  { id: "bTWIdjg1wKg", title: "My Custom Web Design Process", views: "1.2M views" },
-  { id: "de3tVt4M2V8", title: "Not all eggs are not eggcellent", views: "800K views" },
-  { id: "rbd6W6Aw16Y", title: "you are not alone Empathy app edit", views: "2M views" },
-  { id: "neSWO6A_4Nc", title: "Diet coke cinematice video", views: "600K views" },
+  { id: "bTWIdjg1wKg", title: "My Custom Web Design Process", views: "120 views" },
+  { id: "de3tVt4M2V8", title: "Not all eggs are not eggcellent", views: "800 views" },
+  // { id: "rbd6W6Aw16Y", title: "you are not alone Empathy app edit", views: "200 views" },
+  { id: "neSWO6A_4Nc", title: "Diet coke cinematice video", views: "600 views" },
+  { id: "8H53vyjBLN0", title: "Diet coke cinematice videoRaw footage → Scroll-stopping Reel. 🎬✨Just a talking head clip", views: "400K views" },
 ];
 
 export default function VideoSection() {

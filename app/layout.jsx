@@ -1,4 +1,5 @@
 import { Poppins, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -30,6 +31,9 @@ export const metadata = {
     "Delhi video editor",
     "international creator editor",
   ],
+  icons: {
+    icon: "/icon.jpg",
+  },
 };
 
 export const viewport = {
@@ -47,6 +51,22 @@ export default function RootLayout({ children }) {
       className={`${poppins.variable} ${playfair.variable} scroll-smooth antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-MLEE9CG5YH"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MLEE9CG5YH');
+          `}
+        </Script>
+      </head>
       <body
         className="antialiased font-sans bg-black text-white min-h-screen overflow-x-hidden"
         suppressHydrationWarning

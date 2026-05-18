@@ -89,7 +89,7 @@ export default function Home() {
           </AnimatedSection>
 
           <AnimatedSection>
-            {/* <DesignShowcase /> */}
+            <DesignShowcase />
           </AnimatedSection>
 
           <AnimatedSection>

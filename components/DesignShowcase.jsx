@@ -7,55 +7,40 @@ import { X, Eye, Share2, ThumbsUp } from "lucide-react";
 import MediaModal from "./MediaModal";
 
 const designData = [
-  // Posters & Graphics
   {
     id: 9,
-    title: "Max Verstappen Wallpaper",
+    title: "Vogue Creative Poster - Day 1",
     category: "Posters",
-    image: "/img/desing/Max Verstappen Wallpaper.jpg",
+    image: "/img/desing/day 1.jpg",
     aspect: "aspect-[3/4]"
   },
   {
     id: 10,
-    title: "Minji Vogue Poster",
+    title: "Futuristic UI Poster - Day 2",
     category: "Posters",
-    image: "/img/desing/Minji for Vogue _ Poster.jpg",
+    image: "/img/desing/Day2.jpg",
     aspect: "aspect-[2/3]"
   },
   {
     id: 11,
-    title: "Experimental Blur Design",
-    category: "Graphics",
-    image: "/img/desing/experimental_blur.png",
-    aspect: "aspect-square"
+    title: "Cinematic Key Art - Day 6",
+    category: "Posters",
+    image: "/img/desing/day 6.jpg",
+    aspect: "aspect-[3/4]"
   },
   {
     id: 12,
-    title: "Find Yourself",
+    title: "Gym Motivation Social Media Post",
     category: "Graphics",
-    image: "/img/desing/Find yourself in this world.jpg",
-    aspect: "aspect-[4/3]"
+    image: "/img/desing/gym post.jpg",
+    aspect: "aspect-square"
   },
   {
     id: 13,
-    title: "Inner World",
+    title: "Urban Streetwear Poster Design",
     category: "Graphics",
-    image: "/img/desing/experimental_blur.png",
+    image: "/img/desing/postt 2.jpg",
     aspect: "aspect-square"
-  },
-  {
-    id: 15,
-    title: "Supportive Quote",
-    category: "Graphics",
-    image: "/img/desing/supportive_quote.jpg",
-    aspect: "aspect-square"
-  },
-  {
-    id: 16,
-    title: "Today's Inspiration",
-    category: "Graphics",
-    image: "/img/desing/Today.jpg",
-    aspect: "aspect-[3/5]"
   }
 ];
 

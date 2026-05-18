@@ -11,6 +11,7 @@ export default function HeroSection() {
   const [isMuted, setIsMuted] = useState(true);
   const containerRef = useRef(null);
   const iframeRef = useRef(null);
+  const playerRef = useRef(null);
 
   const { scrollY } = useScroll();
 
@@ -21,17 +22,57 @@ export default function HeroSection() {
 
   useEffect(() => {
     setIsMounted(true);
+
+    // YouTube Iframe API Setup
+    if (!window.YT) {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      window.onYouTubeIframeAPIReady = () => {
+        initializePlayer();
+      };
+    } else {
+      initializePlayer();
+    }
+
+    function initializePlayer() {
+      const checkInterval = setInterval(() => {
+        const element = document.getElementById("hero-video-iframe");
+        if (element) {
+          clearInterval(checkInterval);
+          new window.YT.Player("hero-video-iframe", {
+            events: {
+              onReady: (event) => {
+                playerRef.current = event.target;
+                event.target.mute();
+                event.target.playVideo();
+              },
+              onStateChange: (event) => {
+                // YT.PlayerState.PAUSED = 2
+                // YT.PlayerState.ENDED = 0
+                if (event.data === 2 || event.data === 0) {
+                  event.target.playVideo();
+                }
+              }
+            },
+          });
+        }
+      }, 100);
+    }
   }, []);
 
   const toggleMute = () => {
-    const command = isMuted ? "unMute" : "mute";
-    if (iframeRef.current) {
-      iframeRef.current.contentWindow.postMessage(
-        JSON.stringify({ event: "command", func: command, args: "" }),
-        "*"
-      );
+    if (playerRef.current) {
+      if (isMuted) {
+        playerRef.current.unMute();
+        setIsMuted(false);
+      } else {
+        playerRef.current.mute();
+        setIsMuted(true);
+      }
     }
-    setIsMuted(!isMuted);
   };
 
   const scrollToSection = (e, href) => {
@@ -57,14 +98,18 @@ export default function HeroSection() {
       >
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full min-w-[100vw] min-h-[56.25vw] md:min-h-[100vh] md:min-w-[177.77vh]">
           <iframe
+            id="hero-video-iframe"
             ref={iframeRef}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none"
-            src="https://www.youtube.com/embed/Ya3mYXCN7-I?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=Ya3mYXCN7-I&playsinline=1&enablejsapi=1"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[115%] md:w-[130%] md:h-[130%] pointer-events-none"
+            src="https://www.youtube.com/embed/Ya3mYXCN7-I?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&rel=0&playlist=Ya3mYXCN7-I&playsinline=1&enablejsapi=1"
             allow="autoplay; encrypted-media"
             frameBorder="0"
           ></iframe>
         </div>
       </motion.div>
+
+      {/* 🛡️ INVISIBLE PHYSICAL SHIELD TO BLOCK ALL POINTER INTERACTION WITH IFRAME */}
+      <div className="absolute inset-0 z-[3] bg-transparent cursor-default" />
 
       {/* 🌑 OVERLAY SYSTEM - LIGHTER FOR VIDEO VISIBILITY */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />

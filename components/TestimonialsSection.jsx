@@ -19,7 +19,7 @@ const testimonials = [
     name: "Coding for All",
     role: "102K subscribers",
     quote:
-      "Working with Rishabh has been a game-changer for my channel. His thumbnails always grab attention, and the video edits add a whole new level of engagement.",
+      "Working with Rishabh has been a gamechanger for my channel. His thumbnails always grab attention, and the video edits add a whole new level of engagement.",
     image:
       "https://yt3.googleusercontent.com/RFWPISFlWLdzYH074F9iaE7sSojzLjlL3J9sv28IKl-4iFLwOCr0hrn5dp_cUhDG7yQIu3PT=s160-c-k-c0x00ffffff-no-rj",
   },
@@ -39,6 +39,18 @@ const testimonials = [
     image:
       "https://yt3.googleusercontent.com/-UpQZzqhDS58djt3RPNazD5Xfkc1dkGaOsDKETY-Fw-hFB8MigVqo62lO31dyFD6Yy-cXxma=s160-c-k-c0x00ffffff-no-rj",
   },
+  {
+    name: "TheBohoSapiens",
+    role: "711K subscribers",
+    quote: "He made a thumbnail for me, and now that video is at over 2M views! It’s officially the most popular video on my channel so far. ",
+    image: "https://yt3.googleusercontent.com/RtZL_ciZOWaBpqvlDJcmFb3RloCJIfeCLuuRfdFMHVai3vEsnRPsDBSzEoggW5O0UNSqjdtk2Q=s160-c-k-c0x00ffffff-no-rj"
+  },
+  {
+    name: "Cyber Explainer",
+    role: "7.59K subscribers",
+    quote: "He helps me manage everything from the initial video idea all the way to publication, making the entire creative workflow smooth and effortless.",
+    image: "https://yt3.googleusercontent.com/bUVvBCxYmRjHcynQPh96A93lmkNF0OYbqS-VNyc800KCX44E9qszhIj2tLw8C9XF7jJs2dNNWg=s120-c-k-c0x00ffffff-no-rj"
+  }
 ];
 
 const chatCards = [
@@ -101,7 +113,7 @@ export default function TestimonialsSection() {
       <div className="container mx-auto px-4 relative z-10 mt-16 md:mt-24">
         {/* Section header */}
         <div className="text-center mb-12 md:mb-20">
-          <motion.span 
+          <motion.span
             className="text-primary text-xs font-bold tracking-[0.3em] uppercase block mb-4"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -119,7 +131,7 @@ export default function TestimonialsSection() {
           {/* Softer Masks */}
           <div className="absolute left-0 top-0 w-20 md:w-48 h-full bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 w-20 md:w-48 h-full bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none" />
-          
+
           <div className="overflow-hidden">
             <div className="flex gap-6 md:gap-8 py-8 md:py-10 animate-marquee-forward hover:[animation-play-state:paused] w-max">
               {[...Array(2)].map((_, outerIdx) => (
@@ -210,7 +222,7 @@ export default function TestimonialsSection() {
               <div
                 className="flex items-center gap-3 px-5 py-4 border-b border-white/5 bg-white/[0.02]"
               >
-                <div 
+                <div
                   className="w-8 h-8 rounded-full flex items-center justify-center"
                   style={{ background: card.highlight + "20" }}
                 >
@@ -245,7 +257,7 @@ export default function TestimonialsSection() {
                   quality={90}
                   loading="lazy"
                 />
-                
+
                 {/* Overlay Glow */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"

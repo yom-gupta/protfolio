@@ -86,7 +86,7 @@ export default function BeyondCode() {
                   <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse" />
                   <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full border-4 border-primary/30 p-2 overflow-hidden bg-black/50 backdrop-blur-md">
                     <Image
-                      src="/img/pfp2.jpg"
+                      src="/img/pfpf v2.jpg"
                       alt="Avatar"
                       fill
                       className="object-cover rounded-full"

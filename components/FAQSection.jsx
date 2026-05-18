@@ -5,35 +5,35 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     question: "Who do you work with?",
-    answer: "I work with YouTube and Instagram creators: fitness coaches, educators, tech creators, and lifestyle vloggers. From people just starting to grow their channel to established creators with millions of subscribers. No brands for now, just creators who care about quality."
+    answer: "I work with YouTube and Instagram creators — fitness coaches, educators, tech creators, and lifestyle vloggers. From people just starting to grow their channel to established creators with millions of subscribers. No brands for now — just creators who care about quality."
   },
   {
     question: "What software do you use?",
-    answer: "Adobe Premiere Pro for video editing, Photoshop for thumbnail design, and After Effects for motion graphics and animations. Full Adobe Creative Suite."
+    answer: "Adobe Premiere Pro for video editing, Photoshop for thumbnail design, and After Effects for motion graphics and animations — the full Adobe Creative Suite plus DaVinci for color grading."
   },
   {
     question: "How long does it take to complete a project?",
     answer: "Reels and Shorts usually take 3–5 hours. Long-form YouTube videos can take 1 day to 1 week depending on the complexity and length."
   },
   {
-    question: "Do you work with international clients?",
-    answer: "Yes! I'm actively taking on international clients. I'm based in Delhi, available worldwide, and comfortable working across time zones. I communicate in English and Hindi."
+    question: "How many revisions do you offer?",
+    answer: "I offer unlimited revisions until you're fully satisfied with the results."
   },
   {
     question: "How do you determine pricing?",
-    answer: "Pricing depends on the scope: video length, complexity, number of thumbnails, turnaround time etc. Reach out on WhatsApp or email and I will send a personalised quote."
+    answer: "Pricing depends on the scope — video length, complexity, number of thumbnails, turnaround time, etc. Reach out on WhatsApp or email and I'll send a personalised quote."
   },
   {
     question: "How can I contact you?",
-    answer: "WhatsApp: +91 9599326954 · Email: yom.rishabh@gmail.com · Instagram: @mr_yom_gupta. WhatsApp is the fastest way to reach me."
+    answer: "WhatsApp: +91 9599326954 · Email: Rishabh@yomgupta.com · Instagram: @mr_yom_gupta. WhatsApp is the fastest way to reach me."
   },
   {
     question: "What if I'm not satisfied with the result?",
-    answer: "I offer revisions until you're happy. My goal is content that actually performs, not just something that looks good."
+    answer: "I offer revisions until you're happy. My goal is content that actually performs — not just something that looks good."
   },
   {
     question: "What's your creative philosophy?",
-    answer: "I don't just edit videos. I think about why a viewer clicks, why they stay, and why they come back. That's what drives every cut, every color grade, and every thumbnail I make."
+    answer: "I don't just edit videos — I think about why a viewer clicks, why they stay, and why they come back. That's what drives every cut, every color grade, and every thumbnail I make."
   }
 ];
 

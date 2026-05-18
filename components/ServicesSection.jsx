@@ -6,17 +6,17 @@ import { Film, Image as ImageIcon, Zap } from "lucide-react";
 const servicesList = [
   {
     title: "Video Editing",
-    description: "Cinematic video editing with color grading, transitions & pacing that hooks viewers and keeps them watching till the end.",
+    description: "Professional video editing with advanced effects, transitions, and color grading.",
     icon: <Film size={32} className="text-primary md:w-10 md:h-10" />
   },
   {
     title: "Thumbnail Design",
-    description: "High-CTR thumbnails built on visual psychology and bold storytelling. Designed to stop the scroll and get the click.",
+    description: "Eye-catching thumbnails that increase click-through rates and engagement.",
     icon: <ImageIcon size={32} className="text-primary md:w-10 md:h-10" />
   },
   {
-    title: "Reels & Motion Graphics",
-    description: "Shorts & Reels editing optimized for Instagram and YouTube, plus After Effects animations to elevate your brand.",
+    title: "Motion Graphics",
+    description: "Dynamic motion graphics and animations to enhance your content.",
     icon: <Zap size={32} className="text-primary md:w-10 md:h-10" />
   }
 ];
@@ -34,8 +34,8 @@ export default function ServicesSection() {
       <div className="container-custom">
         <h2 className="section-title text-center text-white">Services</h2>
         <p className="text-gray-300 text-center mb-8 md:mb-12 max-w-2xl mx-auto text-sm md:text-base">
-          Trusted by creators from 30K to 20M+ subscribers. I help you grow through cinematic editing,
-          high-converting thumbnails, and scroll-stopping visuals.
+          Trusted by creators from 30K to 20M+ subscribers I help you grow through my Experience in socail media
+          video editing, motion graphics and thumbnail design.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
