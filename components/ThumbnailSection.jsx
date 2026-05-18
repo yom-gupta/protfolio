@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ChevronDown, ChevronUp, MoreVertical, Play, Calendar, Eye } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import MediaModal from "./MediaModal";
+import { trackEvent } from "@/utils/analytics";
 
 const thumbnailsData = [
   {
@@ -219,7 +220,10 @@ export default function ThumbnailSection() {
                 {/* Visual Container */}
                 <div
                   className="relative aspect-video rounded-xl md:rounded-2xl overflow-hidden bg-[#0c1015] border border-white/10 shadow-lg cursor-pointer transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-primary/5"
-                  onClick={() => setSelectedImage(`/img/thumbnails/${thumbnail.image}`)}
+                  onClick={() => {
+                    setSelectedImage(`/img/thumbnails/${thumbnail.image}`);
+                    trackEvent("thumbnail_click", "Thumbnails", thumbnail.title);
+                  }}
                 >
                   <Image
                     src={`/img/thumbnails/${thumbnail.image}`}

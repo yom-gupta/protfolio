@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, Share2, ThumbsUp } from "lucide-react";
 import MediaModal from "./MediaModal";
+import { trackEvent } from "@/utils/analytics";
 
 // const longFormVideos = [
 //   { id: "HhIh-IoxtQ4", title: "Which Indian Whey Protein Is Best?", views: "354K views", date: "5 months ago" },
@@ -25,6 +26,7 @@ export default function VideoSection() {
 
   const handleMediaClick = (video) => {
     setSelectedVideo(video);
+    trackEvent("video_play", "Videos", `${video.title} (${video.type === "short" ? "Short" : "Long"})`);
   };
 
   return (

@@ -1,5 +1,6 @@
 import { Poppins, Playfair_Display } from "next/font/google";
 import Script from "next/script";
+import ScrollTracker from "@/components/ScrollTracker";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -71,6 +72,7 @@ export default function RootLayout({ children }) {
         className="antialiased font-sans bg-black text-white min-h-screen overflow-x-hidden"
         suppressHydrationWarning
       >
+        <ScrollTracker />
         {children}
       </body>
     </html>

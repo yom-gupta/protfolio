@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { X, Eye, Share2, ThumbsUp } from "lucide-react";
 import MediaModal from "./MediaModal";
+import { trackEvent } from "@/utils/analytics";
 
 const designData = [
   {
@@ -130,7 +131,10 @@ export default function DesignShowcase() {
               className="relative break-inside-avoid group cursor-pointer"
               onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}
-              onClick={() => setSelectedDesign(item)}
+              onClick={() => {
+                setSelectedDesign(item);
+                trackEvent("design_click", "Designs", item.title);
+              }}
             >
               <div className={`relative w-full ${item.aspect} bg-gray-900 border border-white/10 rounded-xl sm:rounded-2xl md:rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 group-hover:border-primary/30`}>
                 <Image
@@ -210,7 +214,10 @@ export default function DesignShowcase() {
                       <div
                         key={item.id}
                         className="flex gap-3 md:gap-4 p-2 md:p-3 bg-white/5 rounded-xl md:rounded-2xl border border-white/5 cursor-pointer group/item hover:border-primary/30 transition-all duration-300 shrink-0 lg:shrink"
-                        onClick={() => setSelectedDesign(item)}
+                        onClick={() => {
+                          setSelectedDesign(item);
+                          trackEvent("design_click", "Designs", item.title);
+                        }}
                       >
                         <div className="relative w-16 h-20 md:w-20 md:h-24 rounded-lg md:rounded-xl overflow-hidden shrink-0 border border-white/5">
                           <Image src={item.image} alt={item.title} fill className="object-cover group-hover/item:scale-110 transition-transform duration-500" sizes="80px" />

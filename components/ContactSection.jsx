@@ -6,6 +6,7 @@ import { FiMail as Mail, FiGlobe as GlobeIcon, FiPhone as Phone, FiInstagram as 
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { trackEvent } from "@/utils/analytics";
 
 export default function ContactSection() {
   const [isHovered, setIsHovered] = useState(false);
@@ -71,7 +72,13 @@ export default function ContactSection() {
                   style={{ minHeight: '160px' }}
                 >
                   {detail.href ? (
-                    <a href={detail.href} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center w-full h-full">
+                    <a
+                      href={detail.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center justify-center w-full h-full"
+                      onClick={() => trackEvent("contact_click", "Leads", detail.title)}
+                    >
                       {CardContent}
                     </a>
                   ) : (
@@ -96,6 +103,7 @@ export default function ContactSection() {
                 className="button"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                onClick={() => trackEvent("whatsapp_lead_click", "Leads", "WhatsApp Collab Button")}
                 target="_blank"
               >
                 Connect on WhatsApp

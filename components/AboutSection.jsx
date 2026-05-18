@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { trackEvent } from "@/utils/analytics";
 
 const skills = [
   { name: "Video Editing", percentage: 95 },
@@ -145,6 +146,7 @@ export default function AboutSection() {
                   onClick={(e) => {
                     e.preventDefault();
                     document.querySelector("#video-section")?.scrollIntoView({ behavior: "smooth" });
+                    trackEvent("view_portfolio_click", "About CTA", "View Portfolio");
                   }}
                 >
                   View Portfolio

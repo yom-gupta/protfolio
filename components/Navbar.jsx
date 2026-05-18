@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { trackEvent } from "@/utils/analytics";
 import {
   Home,
   User,
@@ -50,6 +51,7 @@ export default function Navbar() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
+          trackEvent("section_view", "Behavior", entry.target.id);
         }
       });
     };
@@ -64,12 +66,13 @@ export default function Navbar() {
     };
   }, []);
 
-  const scrollToSection = (e, href) => {
+  const scrollToSection = (e, href, linkName) => {
     e.preventDefault();
     const section = document.querySelector(href);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       setActiveSection(href.substring(1));
+      trackEvent("nav_click", "Navigation", linkName);
     }
   };
 
@@ -86,7 +89,7 @@ export default function Navbar() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    onClick={(e) => scrollToSection(e, link.href)}
+                    onClick={(e) => scrollToSection(e, link.href, link.name)}
                     className={`relative flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 group ${isActive ? "text-white bg-white/10" : "text-gray-400 hover:text-white"
                       }`}
                   >
@@ -121,7 +124,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
+                onClick={(e) => scrollToSection(e, link.href, link.name)}
                 className={`relative flex flex-col items-center gap-0.5 transition-all duration-300 ${isActive ? "text-primary scale-110" : "text-gray-500"
                   }`}
               >

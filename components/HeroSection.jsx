@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { IoVolumeHighOutline, IoVolumeMuteOutline } from "react-icons/io5";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
+import { trackEvent } from "@/utils/analytics";
 
 export default function HeroSection() {
   const [isMounted, setIsMounted] = useState(false);
@@ -68,9 +69,11 @@ export default function HeroSection() {
       if (isMuted) {
         playerRef.current.unMute();
         setIsMuted(false);
+        trackEvent("sound_toggle", "Hero Interaction", "Sound On");
       } else {
         playerRef.current.mute();
         setIsMuted(true);
+        trackEvent("sound_toggle", "Hero Interaction", "Sound Off");
       }
     }
   };
@@ -184,7 +187,10 @@ export default function HeroSection() {
         >
           <Link
             href="#video-section"
-            onClick={(e) => scrollToSection(e, "#video-section")}
+            onClick={(e) => {
+              scrollToSection(e, "#video-section");
+              trackEvent("explore_works_click", "Hero CTA", "Explore Works");
+            }}
             className="group relative px-6 md:px-10 py-3 bg-primary text-black rounded-full font-bold text-center overflow-hidden transition-all duration-300 hover:scale-[1.05] active:scale-[0.95] whitespace-nowrap shadow-xl shadow-primary/20"
           >
             <span className="relative z-10 uppercase tracking-wider text-xs md:text-sm">Explore Works</span>
@@ -192,7 +198,10 @@ export default function HeroSection() {
 
           <Link
             href="#contact-section"
-            onClick={(e) => scrollToSection(e, "#contact-section")}
+            onClick={(e) => {
+              scrollToSection(e, "#contact-section");
+              trackEvent("hire_me_click", "Hero CTA", "Hire Me");
+            }}
             className="px-6 md:px-10 py-3 border border-white/30 backdrop-blur-md bg-white/5 text-white rounded-full font-bold text-center transition-all duration-300 hover:bg-white/10 hover:scale-[1.05] active:scale-[0.95] uppercase tracking-wider text-xs md:text-sm whitespace-nowrap"
           >
             Hire Me
