@@ -219,10 +219,10 @@ export default function ThumbnailSection() {
                 {/* Visual Container */}
                 <div
                   className="relative aspect-video rounded-xl md:rounded-2xl overflow-hidden bg-[#0c1015] border border-white/10 shadow-lg cursor-pointer transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-primary/5"
-                  onClick={() => setSelectedImage(`/img/${thumbnail.image}`)}
+                  onClick={() => setSelectedImage(`/img/thumbnails/${thumbnail.image}`)}
                 >
                   <Image
-                    src={`/img/${thumbnail.image}`}
+                    src={`/img/thumbnails/${thumbnail.image}`}
                     alt={thumbnail.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:blur-[2px]"
