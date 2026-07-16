@@ -7,17 +7,18 @@ import { Play, Share2, ThumbsUp } from "lucide-react";
 import MediaModal from "./MediaModal";
 import { trackEvent } from "@/utils/analytics";
 
-// const longFormVideos = [
-//   { id: "HhIh-IoxtQ4", title: "Which Indian Whey Protein Is Best?", views: "354K views", date: "5 months ago" },
-//   { id: "bTWIdjg1wKg", title: "Framer Motion Animations Guide for Modern UI/UX Design", views: "1.1M views", date: "5 months ago" },
-// ];
+const longFormVideos = [
+  { id: "phqvJ_LDIM8", title: "THIS IS LOVE. BUT IT'S NOT THAT SIMPLE...", views: "10K views", date: "Recently" },
+  { id: "HhIh-IoxtQ4", title: "Which Indian Whey Protein Is Best?", views: "354K views", date: "5 months ago" },
+  { id: "01Qrd1ZjS2c", title: "5 TASTY & BEST Foods that BURN Belly Fat", views: "20K views", date: "Recently" },
+];
 
 const shortsVideos = [
   { id: "bTWIdjg1wKg", title: "My Custom Web Design Process", views: "120 views" },
   { id: "de3tVt4M2V8", title: "Not all eggs are not eggcellent", views: "800 views" },
   // { id: "rbd6W6Aw16Y", title: "you are not alone Empathy app edit", views: "200 views" },
-  { id: "neSWO6A_4Nc", title: "Diet coke cinematice video", views: "600 views" },
-  { id: "8H53vyjBLN0", title: "Diet coke cinematice videoRaw footage → Scroll-stopping Reel. 🎬✨Just a talking head clip", views: "400K views" },
+  { id: "neSWO6A_4Nc", title: "Diet coke cinematic video", views: "600 views" },
+  { id: "8H53vyjBLN0", title: "Diet coke cinematic video - Raw footage → Scroll-stopping Reel. 🎬✨Just a talking head clip", views: "400K views" },
 ];
 
 export default function VideoSection() {
@@ -43,9 +44,9 @@ export default function VideoSection() {
 
 
         {/* 2. Long Form Videos Row */}
-        {/* <div className="mb-12 md:mb-20">
+        <div className="mb-12 md:mb-20">
           <h3 className="text-white text-xl md:text-2xl mb-6 md:mb-8 font-bold">Long-Form Content</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {longFormVideos.map((video) => (
               <div
                 key={video.id}
@@ -53,13 +54,13 @@ export default function VideoSection() {
                 onClick={() => handleMediaClick({ ...video, type: 'long' })}
               >
                 <div className="relative aspect-video w-full overflow-hidden rounded-xl md:rounded-2xl bg-[#1a1a1a] border border-white/5 shadow-xl transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-primary/5">
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />
+                  <div className="absolute inset-0 group-hover:bg-black/20 transition-colors z-10" />
                   <Image
-                    src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                    src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
                     alt={video.title}
                     fill
-                    className="object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-all duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 flex items-center justify-center z-20">
                     <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary flex items-center justify-center text-black scale-90 group-hover:scale-100 transition-transform duration-500">
@@ -78,7 +79,7 @@ export default function VideoSection() {
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
 
         {/* 3. Shorts Section / Theater Mode */}
         <div className="mb-12 md:mb-20">
@@ -106,7 +107,7 @@ export default function VideoSection() {
               >
                 <div className="relative aspect-[9/16] w-full overflow-hidden rounded-xl md:rounded-2xl shadow-xl bg-[#1a1a1a] border border-white/5 transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-primary/5 group-hover:-translate-y-2">
                   <Image
-                    src={`https://img.youtube.com/vi/${video.id.split('-')[0]}/0.jpg`}
+                    src={`https://img.youtube.com/vi/${video.id}/0.jpg`}
                     alt={video.title}
                     fill
                     className="object-cover brightness-75 group-hover:brightness-100 transition-all duration-700"
@@ -146,7 +147,7 @@ export default function VideoSection() {
                 <div className="lg:col-span-8 space-y-4 md:space-y-6">
                   <div className={`relative ${selectedVideo.type === 'short' ? 'aspect-[9/16] max-h-[60vh] md:max-h-[70vh]' : 'aspect-video'} mx-auto lg:mx-0 w-full rounded-xl md:rounded-2xl overflow-hidden bg-black shadow-2xl border border-white/10`}>
                     <iframe
-                      src={`https://www.youtube.com/embed/${selectedVideo.id.split('-')[0]}?autoplay=1&mute=0`}
+                      src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1&mute=0`}
                       title={selectedVideo.title}
                       className="absolute top-0 left-0 w-full h-full border-none"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -186,7 +187,7 @@ export default function VideoSection() {
                         >
                           <div className={`relative ${selectedVideo.type === 'short' ? 'aspect-[9/16] h-24 md:h-32' : 'aspect-video w-24 md:w-32'} shrink-0 rounded-lg overflow-hidden bg-white/5`}>
                             <Image
-                              src={`https://img.youtube.com/vi/${video.id.split('-')[0]}/0.jpg`}
+                              src={`https://img.youtube.com/vi/${video.id}/0.jpg`}
                               alt={video.title}
                               fill
                               className="object-cover group-hover:scale-110 transition-transform duration-500"

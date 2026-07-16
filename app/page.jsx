@@ -1,20 +1,24 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Critical above-the-fold components loaded eagerly
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import CustomCursor from "@/components/CustomCursor";
+
+// CustomCursor is desktop-only decoration — lazy load it
+const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
+  ssr: false,
+});
 
 // Below-the-fold components loaded lazily for performance
 const AboutSection = dynamic(() => import("@/components/AboutSection"));
 const BeyondCode = dynamic(() => import("@/components/BeyondCode"));
-const ServicesSection = dynamic(() => import("@/components/ServicesSection"));
+const WebsitesSection = dynamic(() => import("@/components/WebsitesSection"));
 const VideoSection = dynamic(() => import("@/components/VideoSection"));
 const DesignShowcase = dynamic(() => import("@/components/DesignShowcase"));
+const BrandIdentitySection = dynamic(() => import("@/components/BrandIdentitySection"));
 const ThumbnailSection = dynamic(() => import("@/components/ThumbnailSection"));
 const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"));
 const FAQSection = dynamic(() => import("@/components/FAQSection"));
@@ -22,7 +26,7 @@ const ContactSection = dynamic(() => import("@/components/ContactSection"));
 const Footer = dynamic(() => import("@/components/Footer"));
 const BackToTop = dynamic(() => import("@/components/BackToTop"));
 
-// Shared animation variants for scroll-in sections
+// Lightweight scroll-triggered fade-in (no framer-motion whileInView to reduce JS)
 const sectionVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -52,59 +56,55 @@ export default function Home() {
       <CustomCursor />
       <Navbar />
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key="content"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 0.4 } }}
-          className="w-full relative"
-        >
-          {/* Section 1: Hero (Sticky Animation) */}
-          <div className="relative z-20">
-            <HeroSection />
-          </div>
+      <div className="w-full relative">
+        {/* Section 1: Hero (Sticky Animation) */}
+        <div className="relative z-20">
+          <HeroSection />
+        </div>
 
-          <AnimatedSection>
-            <AboutSection />
-          </AnimatedSection>
+        <AnimatedSection>
+          <AboutSection />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <BeyondCode />
-          </AnimatedSection>
+        <AnimatedSection>
+          <BeyondCode />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <TestimonialsSection />
-          </AnimatedSection>
+        <AnimatedSection>
+          <TestimonialsSection />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <ServicesSection />
-          </AnimatedSection>
+        <AnimatedSection>
+          <WebsitesSection />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <VideoSection />
-          </AnimatedSection>
+        <AnimatedSection>
+          <VideoSection />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <ThumbnailSection />
-          </AnimatedSection>
+        <AnimatedSection>
+          <ThumbnailSection />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <DesignShowcase />
-          </AnimatedSection>
+        <AnimatedSection>
+          <DesignShowcase />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <FAQSection />
-          </AnimatedSection>
+        <AnimatedSection>
+          <BrandIdentitySection />
+        </AnimatedSection>
 
-          <AnimatedSection>
-            <ContactSection />
-          </AnimatedSection>
-        </motion.div>
-      </AnimatePresence>
+        <AnimatedSection>
+          <FAQSection />
+        </AnimatedSection>
+
+        <AnimatedSection>
+          <ContactSection />
+        </AnimatedSection>
+      </div>
 
       <Footer />
       <BackToTop />
-
     </div>
   );
 }

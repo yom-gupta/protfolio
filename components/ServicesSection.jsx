@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Film, Image as ImageIcon, Zap } from "lucide-react";
+import { Film, Image as ImageIcon, Zap, Globe } from "lucide-react";
 
 const servicesList = [
   {
@@ -18,6 +18,11 @@ const servicesList = [
     title: "Motion Graphics",
     description: "Dynamic motion graphics and animations to enhance your content.",
     icon: <Zap size={32} className="text-primary md:w-10 md:h-10" />
+  },
+  {
+    title: "Website Design",
+    description: "Stunning, responsive websites built to convert — from cafés to lifestyle brands.",
+    icon: <Globe size={32} className="text-primary md:w-10 md:h-10" />
   }
 ];
 
@@ -34,11 +39,11 @@ export default function ServicesSection() {
       <div className="container-custom">
         <h2 className="section-title text-center text-white">Services</h2>
         <p className="text-gray-300 text-center mb-8 md:mb-12 max-w-2xl mx-auto text-sm md:text-base">
-          Trusted by creators from 30K to 20M+ subscribers I help you grow through my Experience in socail media
+          Trusted by creators from 30K to 20M+ subscribers I help you grow through my Experience in social media
           video editing, motion graphics and thumbnail design.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {servicesList.map((service, index) => (
             <div
               key={index}
