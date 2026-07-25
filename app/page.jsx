@@ -18,7 +18,7 @@ const BeyondCode = dynamic(() => import("@/components/BeyondCode"));
 const WebsitesSection = dynamic(() => import("@/components/WebsitesSection"));
 const VideoSection = dynamic(() => import("@/components/VideoSection"));
 const DesignShowcase = dynamic(() => import("@/components/DesignShowcase"));
-const BrandIdentitySection = dynamic(() => import("@/components/BrandIdentitySection"));
+// const BrandIdentitySection = dynamic(() => import("@/components/BrandIdentitySection"));
 const ThumbnailSection = dynamic(() => import("@/components/ThumbnailSection"));
 const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"));
 const FAQSection = dynamic(() => import("@/components/FAQSection"));
@@ -90,9 +90,9 @@ export default function Home() {
           <DesignShowcase />
         </AnimatedSection>
 
-        <AnimatedSection>
+        {/* <AnimatedSection>
           <BrandIdentitySection />
-        </AnimatedSection>
+        </AnimatedSection> */}
 
         <AnimatedSection>
           <FAQSection />

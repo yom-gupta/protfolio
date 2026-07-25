@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink, Globe, Eye, Code2, Play, X } from "lucide-react";
+import { ExternalLink, Globe, Eye, Code2 } from "lucide-react";
 import { trackEvent } from "@/utils/analytics";
 
 const websiteProjects = [
@@ -89,22 +89,6 @@ const websiteProjects = [
 
 export default function WebsitesSection() {
   const [hoveredId, setHoveredId] = useState(null);
-  // ids of cards whose live iframe the visitor explicitly loaded —
-  // iframes are heavy, so they only mount on demand
-  const [liveIds, setLiveIds] = useState(() => new Set());
-
-  const toggleLive = (project) => {
-    setLiveIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(project.id)) {
-        next.delete(project.id);
-      } else {
-        next.add(project.id);
-        trackEvent("website_live_preview", "Websites", project.title);
-      }
-      return next;
-    });
-  };
 
   return (
     <section
@@ -184,75 +168,38 @@ export default function WebsitesSection() {
                   </div>
                 </div>
 
-                {liveIds.has(project.id) ? (
-                  <>
-                    {/* Live interactive iframe — mounted only on demand */}
-                    <div className="absolute inset-0 mt-8 bg-[#111] overflow-hidden">
-                      <iframe
-                        src={project.url}
-                        title={`${project.title} live preview`}
-                        loading="lazy"
-                        className="absolute top-0 left-0 border-0"
-                        style={{
-                          width: "300%",
-                          height: "300%",
-                          transform: "scale(0.3334)",
-                          transformOrigin: "top left",
-                        }}
-                        sandbox="allow-scripts allow-same-origin allow-popups"
-                      />
-                    </div>
-                    <button
-                      onClick={() => toggleLive(project)}
-                      aria-label="Close live preview"
-                      className="absolute top-10 right-2 z-20 p-1.5 rounded-full bg-black/70 border border-white/20 text-white hover:bg-black transition-all"
-                    >
-                      <X size={12} />
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    {/* Screenshot placeholder (instant, cheap) */}
-                    <div className="absolute inset-0 mt-8 bg-[#111] overflow-hidden">
-                      <Image
-                        src={`https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&meta=false&embed=screenshot.url&type=png&viewport.width=1280&viewport.height=800`}
-                        alt={`${project.title} preview`}
-                        fill
-                        className="object-cover object-top"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        unoptimized
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60 pointer-events-none" />
-                    </div>
+                  {/* Screenshot preview */}
+                  <div className="absolute inset-0 mt-8 bg-[#111] overflow-hidden">
+                    <Image
+                      src={`https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&meta=false&embed=screenshot.url&type=png&viewport.width=1280&viewport.height=800`}
+                      alt={`${project.title} preview`}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      unoptimized
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60 pointer-events-none" />
+                  </div>
 
-                    {/* Hover overlay with live preview + visit CTAs */}
-                    <div className="absolute inset-0 mt-8 bg-black/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-3 flex-wrap px-4">
-                      <button
-                        onClick={() => toggleLive(project)}
-                        className="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 hover:scale-105"
-                        style={{
-                          background: project.accent,
-                          color: "#000",
-                        }}
-                      >
-                        <Play size={16} />
-                        Live Preview
-                      </button>
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() =>
-                          trackEvent("website_visit", "Websites", project.title)
-                        }
-                        className="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm border border-white/30 text-white transition-all duration-300 hover:scale-105 hover:bg-white/10"
-                      >
-                        <Eye size={16} />
-                        Visit Site
-                      </a>
-                    </div>
-                  </>
-                )}
+                  {/* Hover overlay with visit CTA */}
+                  <div className="absolute inset-0 mt-8 bg-black/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-3 flex-wrap px-4">
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        trackEvent("website_visit", "Websites", project.title)
+                      }
+                      className="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 hover:scale-105"
+                      style={{
+                        background: project.accent,
+                        color: "#000",
+                      }}
+                    >
+                      <Eye size={16} />
+                      Visit Site
+                    </a>
+                  </div>
               </div>
 
               {/* Card Content */}

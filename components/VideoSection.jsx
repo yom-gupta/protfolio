@@ -8,18 +8,19 @@ import MediaModal from "./MediaModal";
 import { trackEvent } from "@/utils/analytics";
 
 const longFormVideos = [
-  { id: "phqvJ_LDIM8", title: "THIS IS LOVE. BUT IT'S NOT THAT SIMPLE...", views: "10K views", date: "Recently" },
+  { id: "01Qrd1ZjS2c", title: "5 TASTY & BEST Foods that Burn Belly Fat", views: "20K views", date: "Recently" },
+  { id: "TrPEIepZGx8", title: "op Investor's WARNING: End Of Middle Class Dreams & Loan Trap", views: "10K views", date: "Recently" },
   { id: "HhIh-IoxtQ4", title: "Which Indian Whey Protein Is Best?", views: "354K views", date: "5 months ago" },
-  { id: "01Qrd1ZjS2c", title: "5 TASTY & BEST Foods that BURN Belly Fat", views: "20K views", date: "Recently" },
 ];
 
 const shortsVideos = [
-  { id: "bTWIdjg1wKg", title: "My Custom Web Design Process", views: "120 views" },
+  { id: "yaXytm2ScIo", title: "YouTube Short", views: "0 views" },
+
   { id: "de3tVt4M2V8", title: "Not all eggs are not eggcellent", views: "800 views" },
   // { id: "rbd6W6Aw16Y", title: "you are not alone Empathy app edit", views: "200 views" },
   { id: "neSWO6A_4Nc", title: "Diet coke cinematic video", views: "600 views" },
   { id: "8H53vyjBLN0", title: "Diet coke cinematic video - Raw footage → Scroll-stopping Reel. 🎬✨Just a talking head clip", views: "400K views" },
-  { id: "yaXytm2ScIo", title: "YouTube Short", views: "0 views" },
+  { id: "bTWIdjg1wKg", title: "My Custom Web Design Process", views: "120 views" },
 ];
 
 export default function VideoSection() {

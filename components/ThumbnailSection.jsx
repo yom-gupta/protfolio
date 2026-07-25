@@ -140,6 +140,17 @@ const thumbnailsData = [
     image: "resume ranker ai project1.webp",
     avatar: "/img/btn_img.webp"
   },
+  {
+    id: 13,
+    title: "FoundMyFitness - Don't Die Yet",
+    channel: "Yom Gupta",
+    views: "780K",
+    timeAgo: "1 month ago",
+    duration: "16:35",
+    category: "Fitness",
+    image: "FoundMyFitness dont die yet.png",
+    avatar: "/img/btn_img.webp"
+  },
 
 ];
 
