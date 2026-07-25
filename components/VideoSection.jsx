@@ -19,6 +19,7 @@ const shortsVideos = [
   // { id: "rbd6W6Aw16Y", title: "you are not alone Empathy app edit", views: "200 views" },
   { id: "neSWO6A_4Nc", title: "Diet coke cinematic video", views: "600 views" },
   { id: "8H53vyjBLN0", title: "Diet coke cinematic video - Raw footage → Scroll-stopping Reel. 🎬✨Just a talking head clip", views: "400K views" },
+  { id: "yaXytm2ScIo", title: "YouTube Short", views: "0 views" },
 ];
 
 export default function VideoSection() {
